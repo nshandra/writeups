@@ -4,7 +4,7 @@ description: Linux - Easy
 
 # Cap
 
-## Recon:
+## Recon
 
 We'll start with a `nmap` scan.
 
@@ -38,7 +38,7 @@ PORT   STATE SERVICE VERSION
 ......
 ```
 
-## User:
+## User
 
 So, we get a web server, ftp and ssh.  
 Lets check out the webpage. It's a network monitoring dashboard, the side panel has three additional pages:  
@@ -80,7 +80,7 @@ ftp> get user.txt
 
 If we try reusing the FTP credentials in SSH we'll find that they are valid.
 
-## Root:
+## Root
 
 We have SSH access to the machine. Lets check out how the web app generates the pcap files, given that network capture usually requires elevated privileges.
 
