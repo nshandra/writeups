@@ -4,8 +4,11 @@
 
 ## HackTheBox
 
-* [Machines](hackthebox/machines.md)
+* [Machines](hackthebox/machines/README.md)
+  * [Cap](hackthebox/machines/cap.md)
 * [Challenges](hackthebox/challenges.md)
+* [Endgame](hackthebox/endgame/README.md)
+  * [RPG](hackthebox/endgame/rpg.md)
 
 ## CTFs
 
