@@ -42,23 +42,23 @@ PORT   STATE SERVICE VERSION
 
 So, we get a web server, ftp and ssh.  
 Lets check out the webpage. It's a network monitoring dashboard, the side panel has three additional pages:  
-Security Snapshot \(5 Second PCAP + Analysis\) - http://10.10.10.245/data/5  
+Security Snapshot \(5 Second PCAP + Analysis\) - http://10.10.10.245/capture  
 IP Config - http://10.10.10.245/ip  
 Network Status - http://10.10.10.245/netstat
 
 The Security Snapshot page allows to download a pcap file of the last 5 seconds of network activity.  
-For example, if we `ping` the machine 8 times we and request the data page at the start of the ping command we get the following.
+For example, if we `ping` the machine 8 times and request the data page at the start of the ping command we get the following.
 
 ![](../../.gitbook/assets/screenshot-7-.png)
 
 It looks like each time the _Security Snapshot_ is requested the results are stored with an numerical index, lets checkout the first snapshot.  
-[http://10.10.10.245/data/0](http://10.10.10.245/data/0)  
+http://10.10.10.245/data/0  
 We get a 72 packets pcap. The protocol hierarchy tells us that its a FTP connection.  
 Applying the appropriate filter we'll get the FTP credentials.
 
 ![](../../.gitbook/assets/capture%20%282%29.png)
 
-The ftp server will show us nathan user home folder. Here we can get the user flag.
+The ftp server will show us **nathan** user home folder. Here we can get the user flag.
 
 ```bash
 $ ftp 10.10.10.245
@@ -123,5 +123,5 @@ root
 ## Conclusion
 
 This machine is quite straight forward, but we can get a couple of takeaways:  
-Be mindful of what is exposed in your website, don't reuse credentials and don't grant unrestricted sudo permissions.
+Be mindful of what is exposed in your website by URL manipulation \(IDOR\), don't reuse credentials and don't grant unrestricted elevated permissions, especially if the executable accepts user input.
 
